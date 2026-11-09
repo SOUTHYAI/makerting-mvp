@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10111b">
+  <title>SouthyAI Studios — Make your idea a film</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">S</span><span>SouthyAI <b>Studios</b></span></a>
+    <span class="status"><i></i> Creator workspace</span>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">YOUR IDEA. YOUR STORY. YOUR FILM.</p>
+      <h1>Make something<br><span>worth watching.</span></h1>
+      <p class="subhead">Describe the video you imagine. SouthyAI Studios will turn your brief into a production plan — with your characters, scenes and voice in one place.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="panel prompt-panel">
+        <div class="panel-heading"><div><p class="eyebrow">01 / CREATE</p><h2>What are we making today?</h2></div><span class="step">ONE PROMPT</span></div>
+        <label for="prompt">Describe your video idea</label>
+        <textarea id="prompt" maxlength="3000" placeholder="Example: Create a cinematic 60-second advert for a Durban coffee shop. Show a warm morning, a barista preparing coffee, happy customers and a strong final offer..."></textarea>
+        <div class="prompt-bottom"><span id="count">0 / 3000</span><select id="format" aria-label="Video format"><option value="vertical">Vertical · Reels / TikTok</option><option value="landscape">Landscape · YouTube / web</option></select></div>
+        <button id="createBtn" class="primary">Build my video plan <span>→</span></button>
+        <p class="fineprint">This MVP saves your brief. Live AI generation will be switched on after the production provider is connected.</p>
+        <div id="jobMessage" class="message" role="status" aria-live="polite"></div>
+      </div>
+
+      <aside class="panel side-panel">
+        <p class="eyebrow">YOUR STUDIO</p>
+        <h2>One creative space.</h2>
+        <ul class="feature-list">
+          <li><span>✦</span><div><b>Story intelligence</b><small>Turn a rough idea into a clear production brief.</small></div></li>
+          <li><span>◈</span><div><b>Character memory</b><small>Keep the look and feel consistent across scenes.</small></div></li>
+          <li><span>♫</span><div><b>Your voice, your choice</b><small>Record a voice sample and control how it may be used.</small></div></li>
+        </ul>
+        <div class="preview-placeholder"><div class="play">▶</div><span>YOUR NEXT STORY STARTS HERE</span></div>
+      </aside>
+    </section>
+
+    <section class="panel voice-panel" id="account">
+      <div class="panel-heading"><div><p class="eyebrow">YOUR STUDIO</p><h2>Credits &amp; account</h2></div><span class="step">STEP 1</span></div>
+      <div id="signedOut">
+        <p class="voice-intro">Make a studio account to use the AI tools. You'll get a private key. Keep it safe, it is how you sign in.</p>
+        <input id="regEmail" type="email" placeholder="your@email.com" autocomplete="email">
+        <button id="regBtn" class="secondary">Create my studio key</button>
+        <p class="fineprint">Already have a key?</p>
+        <input id="keyInput" type="password" placeholder="Paste your studio key">
+        <button id="signInBtn" class="secondary">Sign in</button>
+      </div>
+      <div id="signedIn" hidden>
+        <p class="fineprint" id="whoami"></p>
+        <div class="balance"><span id="balance">0</span> credits</div>
+        <p class="fineprint">To top up, pay by EFT/PayShap and send your proof of payment with your email to support@southyai.co.za. Credits are added after payment is confirmed.</p>
+        <button id="signOutBtn" class="secondary">Sign out</button>
+      </div>
+      <div id="accountMessage" class="message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel voice-panel" id="voiceTool" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">AI TOOL</p><h2>Text to voice</h2></div><span class="step" id="voiceCost">STEP 2</span></div>
+      <label for="voiceText">What should the voice say?</label>
+      <textarea id="voiceText" maxlength="500" placeholder="Type your script here…"></textarea>
+      <div class="prompt-bottom"><span id="voiceCount">0 / 500</span><select id="voiceLang" aria-label="Language"></select></div>
+      <button id="voiceGoBtn" class="primary">Make the voice <span>→</span></button>
+      <div id="voiceToolMessage" class="message" role="status" aria-live="polite"></div>
+      <div id="history"></div>
+    </section>
+
+    <section class="panel voice-panel">
+      <div class="panel-heading"><div><p class="eyebrow">02 / YOUR VOICE</p><h2>Record your own voice</h2></div><span class="step">OPTIONAL</span></div>
+      <p class="voice-intro">Use a voice sample for your own voice feature. You decide separately whether SouthyAI may retain that recording for research and training.</p>
+      <div class="recorder">
+        <div class="record-controls"><button id="recordBtn" class="record-btn">● Start recording</button><span id="recordStatus">Microphone not started</span></div>
+        <audio id="audioPreview" controls hidden></audio>
+        <label class="consent"><input id="researchConsent" type="checkbox"><span><b>Optional: I agree that SouthyAI may retain this recording for voice-AI research and training.</b><small>This is optional and unchecked by default. If you leave it unticked, the recording is not approved for SouthyAI research/training. The sample may still be processed for the personal voice service you request. Full consent, retention and withdrawal terms must be shown before public launch.</small></span></label>
+        <button id="uploadVoiceBtn" class="secondary" disabled>Save voice sample</button>
+        <div id="voiceMessage" class="message" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> SouthyAI Studios · Our voices. Our stories. Our future.</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
